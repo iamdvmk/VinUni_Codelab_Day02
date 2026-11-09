@@ -32,6 +32,12 @@ Make sure you clearly explain:
 - Operational boundaries regarding [DRAFT_ONLY] tag requirements.
 - Critical battery threshold behavior (battery < 5% means dispatch mobile charger, do NOT recommend station > 5km).
 - Formatting response in clean JSON or text based on rules.
+
+[RULE 1]
+Every response representing a draft message, routing guide, or text intended for the user must begin with the tag [DRAFT_ONLY]. This ensures that no automated sending occurs without human review.
+
+[RULE 2]
+If the driver's EV battery level is below 5%, the model must NOT recommend any charging station that is farther than 5km away. Instead, it must immediately trigger a Mobile Charging Vehicle dispatch with the following JSON structure:
 """
 
 
@@ -47,6 +53,23 @@ def evaluate_prompt(user_input: str) -> str:
     # TODO: Initialize Gemini client and call model.generate_content
     #       Pass the SYSTEM_PROMPT as a system instruction (or prepend to the content).
     #       Return the model's response text.
+    try:
+        from google import genai
+        from google.genai import types
+
+        client = genai.client(api_key=os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY"))
+        config = types.GenerateContentConfig(
+            system_instuction = SYSTEM_PROMPT,
+            temperature = 0.0
+        )
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            config=config,
+            input=user_input
+        )
+        return response.text or ""
+    except ImportError:
+        return "Gemini SDK not installed. Please install google-genai package."
     raise NotImplementedError("Implement evaluate_prompt")
 
 
