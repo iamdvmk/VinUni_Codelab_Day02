@@ -68,7 +68,6 @@
 ## 3.2. Problem Statement (6-field) & Metrics (15 min)
 Điền đầy đủ 6 trường thông tin của bài toán:
 
-```
 | Field | Nội dung chi tiết |
 |---|---|
 | **1. Actor / Operator** | Nhân viên QC (Quality Control), tổ trưởng QC và nhân viên sản xuất tại dây chuyền kiểm định xe sau lắp ráp. |
@@ -93,7 +92,6 @@
  AI tuyệt đối không được: Tự quyết định cho xe xuất xưởng, tự kết luận xe đạt tiêu chuẩn an toàn, tự bỏ qua lỗi nghiêm trọng hoặc tự đóng hồ sơ lỗi. 
 
  Cần con người duyệt: Xác nhận lỗi, quyết định mức độ nghiêm trọng, yêu cầu sửa chữa và phê duyệt cuối cùng trước khi xe xuất xưởng. |
- ```
 
 
 ## 3.3. Future-State Flow & AI Fit (25 min)
