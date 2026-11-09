@@ -1,4 +1,5 @@
 ## 3.1. Current-State Workflow Mapping (25 min)
+```
 ┌──────────────────┐    ┌──────────────────┐
 │ BƯỚC 1           │    │ BƯỚC 2           │
 │ Tiếp nhận xe     │    │ Kiểm tra ngoại   │
@@ -62,9 +63,12 @@
 🔄 = Handoff giữa người/bộ phận
 
 ⏱ TỔNG THỜI GIAN: 20 PHÚT/LƯỢT
+```
+
 ## 3.2. Problem Statement (6-field) & Metrics (15 min)
 Điền đầy đủ 6 trường thông tin của bài toán:
 
+```
 | Field | Nội dung chi tiết |
 |---|---|
 | **1. Actor / Operator** | Nhân viên QC (Quality Control), tổ trưởng QC và nhân viên sản xuất tại dây chuyền kiểm định xe sau lắp ráp. |
@@ -89,11 +93,14 @@
  AI tuyệt đối không được: Tự quyết định cho xe xuất xưởng, tự kết luận xe đạt tiêu chuẩn an toàn, tự bỏ qua lỗi nghiêm trọng hoặc tự đóng hồ sơ lỗi. 
 
  Cần con người duyệt: Xác nhận lỗi, quyết định mức độ nghiêm trọng, yêu cầu sửa chữa và phê duyệt cuối cùng trước khi xe xuất xưởng. |
+ ```
+
 
 ## 3.3. Future-State Flow & AI Fit (25 min)
 * **Xác định mức AI Fit (AI-Fit Matrix):** Giải pháp thuộc nhóm nào? [X] Rule / State-Machine [X] LLM Feature [ ] Agentic Loop.
 Lựa chọn: Computer Vision là AI chính; Rule-based kiểm tra tiêu chuẩn; LLM hỗ trợ báo cáo.
 
+```
 ┌──────────────────────┐
 │ BƯỚC 1               │
 │ Tiếp nhận xe sau     │
@@ -185,7 +192,7 @@ dưới ngưỡng (ví dụ 85%) hoặc hệ thống lỗi:
 ↩️ = Fallback
 
 ⏱ TỔNG THỜI GIAN MỤC TIÊU: 10 PHÚT/XE
-
+```
 
 ### AI Readiness Checklist:
 1. [ ] Chúng tôi có sẵn dữ liệu mẫu/logs sạch để test?
