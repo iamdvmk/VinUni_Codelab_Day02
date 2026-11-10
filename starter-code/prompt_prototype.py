@@ -47,7 +47,19 @@ def evaluate_prompt(user_input: str) -> str:
     # TODO: Initialize Gemini client and call model.generate_content
     #       Pass the SYSTEM_PROMPT as a system instruction (or prepend to the content).
     #       Return the model's response text.
-    raise NotImplementedError("Implement evaluate_prompt")
+    from google import genai
+    from google.genai import types
+    
+    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY"))
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=user_input,
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+            temperature=0,
+        ),
+    )
+    return response.text or ""
 
 
 # ===========================================================================
